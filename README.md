@@ -15,3 +15,7 @@ $ zip -r lambda.zip lambda.py
 $ terraform init
 $ terraform apply
 ```
+
+## Youtube video explanation
+
+https://www.youtube.com/watch?v=nkvXC5JOgeo
