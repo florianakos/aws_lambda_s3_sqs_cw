@@ -1,5 +1,7 @@
 # aws_lambda_s3_sqs_cw
 
+![architecture overview](arch.png "Architecture")
+
 AWS Terraform Project with:
 - Lambda serverless implementation (Python)
 - S3 bucket for storage
