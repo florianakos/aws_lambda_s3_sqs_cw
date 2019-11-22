@@ -10,7 +10,7 @@ AWS Terraform Project with:
 
 ## To deploy:
 
-### Step 1: Package the
+### Step 1: Package the code
 
 Since we use terraform to deploy the Lambda function, we need a way to package and deliver the code that will be called when a request comes in. This is achieved by wrapping the python file in a zip and specifying it in the terraform code section `aws_lambda_function`. The simplest way to achieve this is by calling the zip program via the CLI:
 
@@ -42,6 +42,8 @@ $ zip -r9 ${OLDPWD}/function.zip .
 $ cd $OLDPWD
 $ zip -g function.zip function.py
 ```
+
+### Step 2: Deploy with Terraform
 
 Now we have a ZIP that contains any necessary Python package we use plus the source code, so it is ready to be used by Terraform. In order to deploy the whole project to AWS, use the below commands
 
