@@ -2,7 +2,7 @@ import json
 import csv
 import gzip
 import boto3
-from botocore.vendored import requests
+import requests
 
 def handler(event, context):
     # verify that URL is passed correctly and create file_name variable based on it
@@ -17,7 +17,7 @@ def handler(event, context):
       return
     target_bucket_name = event["target_bucket"]
 
-    # send Github API request 
+    # send Github API request
     print("URL validated! Selected organization: " + event["org_name"])
     print("Sending Github API request... ")
     resp = requests.get("https://api.github.com/orgs/" + event["org_name"] + "/repos?type=all")
@@ -37,7 +37,7 @@ def handler(event, context):
                     gzipf.write(str.encode(
                                         str(d["id"])+","
                                         +d["description"].translate({ord(','): None, ord(';'): None})+","
-                                        +d["html_url"]+"\n")) 
+                                        +d["html_url"]+"\n"))
 
     # handle the upload from local /tmp folder to S3 bucket
     print("Uploading gzipped CSV to S3 bucket () ...")
