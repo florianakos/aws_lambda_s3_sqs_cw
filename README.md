@@ -30,14 +30,14 @@ A small caveat I discovered with this approach, since the summer when I first ra
 To fix this error I had to package the source code together with the `requests` python module, so the AWS Lambda can call the function I use to fetch the data from the REST API. To do this I folled a how-to on AWS:
 
 ```bash
-#Install the required package in a subdir
-$ pip install --target ./package requests
-#Zip the contents of this new subdir
-$ cd package
-$ zip -r9 ${OLDPWD}/function.zip .
-#Finally add to the ZIP the python source code
-$ cd $OLDPWD
-$ zip -g function.zip function.py
+# Install the required package in a subdir
+  $ pip install --target ./package requests
+# Zip the contents of this new subdir
+  $ cd package
+  $ zip -r9 ${OLDPWD}/function.zip .
+# Finally add to the ZIP the python source code
+  $ cd $OLDPWD
+  $ zip -g function.zip function.py
 ```
 
 ### Step 2: Deploy with Terraform
