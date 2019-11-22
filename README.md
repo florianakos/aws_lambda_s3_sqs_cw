@@ -21,13 +21,10 @@ $ zip -r lambda.zip lambda.py
 A small caveat I discovered with this approach, since the summer when I first ran this code. The vendored botocore python module is being deprecated, so there was a warning on the AWS Lambda console output:
 
 ```
-START RequestId: b8ca17c4-a08b-42f2-8758-87a55a697491 Version: $LATEST
 ...
 /var/runtime/botocore/vendored/requests/api.py:67: DeprecationWarning: You are using the get() function from 'botocore.vendored.requests'.  This is not a public API in botocore and will be removed in the future. Additionally, this version of requests is out of date.  We recommend you install the requests package, 'import requests' directly, and use the requests.get() function instead.
   DeprecationWarning
 ...
-END RequestId: b8ca17c4-a08b-42f2-8758-87a55a697491
-REPORT RequestId: b8ca17c4-a08b-42f2-8758-87a55a697491	Duration: 2691.03 ms	Billed Duration: 2700 ms	Memory Size: 128 MB	Max Memory Used: 78 MB	Init Duration: 189.53 ms
 ```
 
 To fix this error I had to package the source code together with the `requests` python module, so the AWS Lambda can call the function I use to fetch the data from the REST API. To do this I folled a how-to on AWS:
