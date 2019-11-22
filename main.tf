@@ -144,7 +144,7 @@ resource "aws_s3_bucket" "tf_aws_bucket" {
     Name        = "My bucket for Cisco Prague interview"
     Environment = "Dev"
   }
-  force_destroz = "true"
+  force_destroy = "true"
 }
 
 resource "aws_s3_bucket_notification" "bucket_notification" {
