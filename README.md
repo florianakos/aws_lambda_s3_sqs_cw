@@ -49,7 +49,3 @@ $ cd dir_with_main.tf
 $ terraform init
 $ terraform apply
 ```
-
-## Youtube video explanation
-
-https://www.youtube.com/watch?v=nkvXC5JOgeo
