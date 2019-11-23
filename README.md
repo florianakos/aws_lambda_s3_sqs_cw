@@ -8,7 +8,7 @@ AWS Terraform Project with:
 - SQS queue for notifications
 - CW scheduling to trigger Lambda
 
-## To deploy:
+## Steps to deploy with terraform
 
 ### Step 1: Package the code
 
