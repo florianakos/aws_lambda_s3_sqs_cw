@@ -1,4 +1,4 @@
-# aws_lambda_s3_sqs_cw
+# Terraform project on AWS Cloud
 
 ![architecture overview](arch.png "Architecture")
 
