@@ -29,6 +29,12 @@ resource "aws_iam_role_policy_attachment" "basic-exec-role" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
+resource "aws_iam_policy" "s3_lambda_access" {
+  name   = "s3_lambda_access"
+  path   = "/"
+  policy = data.aws_iam_policy_document.s3_lambda_access.json
+}
+
 data "aws_iam_policy_document" "s3_lambda_access" {
   statement {
     effect    = "Allow"
@@ -39,12 +45,6 @@ data "aws_iam_policy_document" "s3_lambda_access" {
       "s3:ListBucket",
     ]
   }
-}
-
-resource "aws_iam_policy" "s3_lambda_access" {
-  name   = "s3_lambda_access"
-  path   = "/"
-  policy = data.aws_iam_policy_document.s3_lambda_access.json
 }
 
 resource "aws_iam_role_policy_attachment" "s3_lambda_access" {
