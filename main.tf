@@ -141,7 +141,7 @@ resource "aws_cloudwatch_event_target" "lambda_target_details" {
 resource "aws_s3_bucket" "tf_aws_bucket" {
   bucket = "tf-aws-bucket"
   tags = {
-    Name        = "My bucket for Cisco Prague interview"
+    Name        = "My bucket for Terraform/AWS project"
     Environment = "Dev"
   }
   force_destroy = "true"
